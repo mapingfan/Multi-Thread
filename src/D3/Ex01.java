@@ -1,8 +1,8 @@
 package D3;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.ToIntFunction;
+        import java.util.Arrays;
+        import java.util.List;
+        import java.util.function.ToIntFunction;
 
 /**
  * Lambda表达式并行计算.
