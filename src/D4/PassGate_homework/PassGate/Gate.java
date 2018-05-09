@@ -1,4 +1,4 @@
-package D4.PassGate;
+package D4.PassGate_homework.PassGate;
 
 import lombok.Data;
 
@@ -7,21 +7,36 @@ public class Gate {
     private int counter;
     private String name;
     private String address;
+    private final Mutex mutex = new Mutex();
 
-    public synchronized void pass(String name, String address) {
-        this.name = name;
-        this.address = address;
-        counter++;
-        check();
+
+    public void pass(String name, String address) {
+        mutex.lock();
+            try {
+                this.name = name;
+                this.address = address;
+                counter++;
+                check();
+        } finally {
+            mutex.unlock();
+        }
+
     }
 
     @Override
-    public synchronized   String toString() {
+    public String toString() {
+        mutex.unlock();
+        try {
+
         return "Gate{" +
                 "counter=" + counter +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+        } finally {
+            mutex.unlock();
+        }
+
     }
 
     private void check() {
