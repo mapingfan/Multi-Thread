@@ -4,7 +4,7 @@ package D5.ArraryList.TestPerformance;
  * 写一个程序,测试加锁和不加锁的开销.
  */
 public class Main {
-    private static final long CALL_COUNT = 100000000000L;
+        private static final long CALL_COUNT = 100000000000L;
 
     public static void main(String[] args) {
         trial("NotSynch", CALL_COUNT, new NotSynch());
