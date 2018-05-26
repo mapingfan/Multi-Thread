@@ -28,7 +28,8 @@ public class Host {
 //        executorService.execute(() -> help.execute(count, a));
 //        executorService.shutdown();
 //        ((ThreadFactory) Thread::new).newThread(() -> help.execute(count, a)).start();
-        ((Executor) Host::execute).execute(() -> help.execute(count, a));
+//        ((Executor) Host::execute).execute(() -> help.execute(count, a));
+        new HelpThread(help, count, a).start();
         System.out.println("Request end execute ( " + count + " " + a + " )");
     }
 }
