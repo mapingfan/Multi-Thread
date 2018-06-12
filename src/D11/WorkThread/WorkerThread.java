@@ -9,9 +9,9 @@ public class WorkerThread extends Thread {
 
     @Override
     public void run() {
-        while (true) {
-            Request request = channel.takeRequest();
-            request.execute();
+                while (true) {
+                    Request request = channel.takeRequest();
+                    request.execute();
         }
     }
 }
