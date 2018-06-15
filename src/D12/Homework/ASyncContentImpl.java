@@ -8,6 +8,7 @@ import java.net.URL;
 
 public class ASyncContentImpl implements Content {
     private volatile boolean ready = false;
+
     private byte[] contentBytes;
 
     public ASyncContentImpl(String urlstr) {
